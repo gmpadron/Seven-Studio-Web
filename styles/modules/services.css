@@ -1,0 +1,257 @@
+/* Services Section (Legacy) */
+.services-section {
+    background-color: var(--bg-dark);
+    display: flex;
+    align-items: center;
+    padding: var(--section-space-y) 0;
+}
+
+.services-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Col 1 */
+.service-col-1 {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.service-col-1 h3 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: rgba(var(--white-rgb), 0.6);
+    font-family: var(--font-sans);
+    letter-spacing: 1px;
+}
+
+.service-col-1 h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-serif);
+}
+
+/* Col 2: List */
+.services-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.service-item {
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    padding-left: 2rem;
+    border-left: 1px solid var(--border-faint);
+}
+
+.service-item:hover {
+    opacity: 0.8;
+}
+
+.service-item.active {
+    border-left: 3px solid var(--primary-lime);
+    padding-left: 1.9rem;
+}
+
+.service-num {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(var(--white-rgb), 0.3);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.service-item.active .service-num {
+    color: var(--primary-lime);
+}
+
+.service-name {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: rgba(var(--white-rgb), 0.5);
+    transition: color 0.3s;
+}
+
+.service-item.active .service-name {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+/* Col 3: Card */
+.service-col-3 {
+    position: relative;
+}
+
+.service-card {
+    background-color: var(--accent-violet);
+    color: var(--text-white);
+    padding: 3rem;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(var(--accent-violet-rgb), 0.3);
+}
+
+.card-top {
+    text-align: right;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.card-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-sans);
+}
+
+.card-content p {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    min-height: 80px;
+}
+
+.price-tag {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.card-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.nav-arrow {
+    background: transparent;
+    border: none;
+    color: var(--text-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    opacity: 0.7;
+}
+
+.nav-arrow:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+/* Anim Classes */
+.animate-slide-down {
+    animation: slideInDown 0.5s ease forwards;
+}
+
+.animate-slide-up {
+    animation: slideInUp 0.5s ease forwards;
+}
+
+.animate-slide-left {
+    animation: slideInLeft 0.5s ease forwards;
+}
+
+.animate-slide-right {
+    animation: slideInRight 0.5s ease forwards;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .services-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .service-col-1,
+    .service-col-2,
+    .service-col-3 {
+        width: 100%;
+    }
+
+    .services-list {
+        flex-direction: row;
+        justify-content: center;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .service-item {
+        padding-left: 0;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 0.5rem;
+    }
+
+    .service-item.active {
+        border-left: none;
+        border-bottom: 2px solid var(--primary-lime);
+        padding-left: 0;
+    }
+}

@@ -1,0 +1,92 @@
+/* Carousel Module (Adapted for Swiper) */
+.integrations-section {
+    padding: var(--section-space-y) 0;
+    background: radial-gradient(circle at 20% 20%, rgba(var(--accent-mint-rgb), 0.12), transparent 60%),
+        radial-gradient(circle at 80% 0%, rgba(var(--accent-indigo-rgb), 0.15), transparent 55%),
+        var(--bg-dark);
+    overflow: hidden;
+}
+
+.integrations-title {
+    font-size: 3rem;
+    font-family: var(--font-serif);
+    margin-bottom: 3rem;
+    line-height: 1.2;
+}
+
+/* Swiper Styles */
+.swiper {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.swiper-wrapper {
+    align-items: center;
+}
+
+/* Scoped to Integrations Swiper */
+.swiper-integrations-1 .swiper-slide,
+.swiper-integrations-2 .swiper-slide {
+    width: auto !important;
+    flex: 0 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    padding: 0.4rem 0 !important;
+}
+
+.integration-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-soft);
+    background: rgba(var(--bg-panel-rgb), 0.55);
+    backdrop-filter: blur(8px);
+    min-width: 11rem;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.integration-card i {
+    font-size: 1.2rem;
+    color: var(--primary-lime);
+}
+
+.integration-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--text-muted);
+}
+
+.integration-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(var(--accent-mint-rgb), 0.45);
+}
+
+.integrations-section::before {
+    content: "";
+    position: absolute;
+    inset: 10% 5% auto;
+    height: 60%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--white-rgb), 0.08), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.integrations-section > * {
+    position: relative;
+}
+
+@media (max-width: 600px) {
+    .integration-card {
+        padding: 0.7rem 1.2rem;
+        min-width: 9rem;
+    }
+
+    .integration-name {
+        font-size: 0.85rem;
+    }
+}

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven Studio | Servicios Premium</title>
+    <meta name="description" content="Soluciones web de alto impacto.">
+
+    <!-- SEO Básico -->
+    <meta name="keywords" content="Agencia marketing, Diseño web, SEO, Branding, Seven Studio">
+    <meta name="author" content="Seven Studio">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (Para cuando se comparte en Facebook/LinkedIn/WhatsApp) -->
+    <meta property="og:type" content="website">
+    <!--<meta property="og:url" content="https://tudominio.com/"> ESPERANDO SABER EL DOMINIO -->
+    <meta property="og:title" content="Seven Studio | Servicios Premium">
+    <meta property="og:description" content="Soluciones web de alto impacto. Estrategia, Diseño y Marketing Digital.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Pinyon+Script&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="container header-content">
+            <!-- Left: Logo -->
+            <a href="#hero" class="logo" aria-label="Seven Studio">
+                <img src="assets/images/logo.png" alt="Seven Studio" />
+            </a>
+
+            <!-- Center: Nav -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#servicios">Planes</a></li>
+                    <li><a href="#que-hacemos">Lo que hacemos</a></li>
+                    <li><a href="#conocenos">Equipo</a></li>
+                    <li><a href="#integrations">Proyectos</a></li>
+                </ul>
+                <button class="nav-cta trigger-form" type="button">Quiero empezar</button>
+            </nav>
+
+            <!-- Right: Open Form Button -->
+            <div class="header-actions">
+                <button id="toggle-form-btn" class="btn-icon" aria-label="Abrir formulario">
+                    </i> <span class="btn-text">EMPEZAR</span><i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Fixed Floating Form (Open by default state handled in JS/CSS) -->
+    <aside id="floating-form-panel" class="floating-form-panel">
+        <div class="form-header">
+            <h3>Empezar</h3>
+            <button type="button" id="close-form-btn" class="close-btn" aria-label="Cerrar">+</button>
+        </div>
+        <p class="form-intro">Da el paso y comienza a destacar.</p>
+
+        <form id="contact-form" hx-post="/api/contact" hx-swap="innerHTML">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="whatsapp">WhatsApp</label>
+                <input type="tel" id="whatsapp" name="whatsapp" required>
+            </div>
+            <div class="form-group">
+                <label for="budget">Presupuesto</label>
+                <input type="text" id="budget" name="budget">
+            </div>
+            <button type="submit" class="btn btn-submit">
+                ENVIAR <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </form>
+    </aside>
+
+    <main>
+        <section id="hero">
+            <div class="video-background">
+                <video id="bg-video" autoplay muted loop playsinline poster="">
+                    <source src="assets/video_retro_landing.mp4" type="video/mp4">
+                </video>
+                <div class="overlay"></div>
+            </div>
+
+            <div class="container hero-layout">
+                <div class="hero-text fade-in-up">
+                    <h1>
+                        <span class="d-block serif-font">Alcanza</span>
+                        <span class="d-block script-font with-sparkles">
+                            <i class="fa-solid fa-star sparkle s-1"></i>
+                            Nuevos
+                            <i class="fa-solid fa-star sparkle s-2"></i>
+                        </span>
+                        <span class="d-block serif-font">Límites</span>
+                    </h1>
+                    <p class="subtitle">Dale un impulso a tus redes y destaca.</p>
+                    <a href="#toggle-form-btn" class="btn btn-cta trigger-form">Quiero ser parte</a>
+                </div>
+            </div>
+
+            <div class="bottom-text fade-in-up delay-300">
+                <p>Seven Studio es una agencia de ESTRATEGIA, MARKETING DIGITAL, CREACIÓN DE CONTENIDO Y MÁS.</p>
+            </div>
+        </section>
+
+        <section id="servicios" class="section services-section">
+            <div class="container services-layout">
+                <!-- Column 1: Intro -->
+                <div class="service-col-1">
+                    <h3>Aquí comienza la magia</h3>
+                    <h1>Planes</h1>
+                    <a href="#toggle-form-btn" class="btn btn-cta trigger-form">Quiero comenzar</a>
+                </div>
+
+                <!-- Column 2: List -->
+                <div class="service-col-2">
+                    <ul class="services-list" id="services-list">
+                        <!-- Filled by JS -->
+                    </ul>
+                </div>
+
+                <!-- Column 3: Card Detail -->
+                <div class="service-col-3">
+                    <div id="service-card" class="service-card">
+                        <div class="card-top">
+                            <i class="fa-solid fa-rocket icon" id="s-icon"></i>
+                        </div>
+                        <div class="card-content">
+                            <h2 id="s-title">Servicio Básico</h2>
+                            <p id="s-desc">Descripción del servicio.</p>
+                            <div class="price-tag" id="s-price">$0</div>
+                        </div>
+                        <div class="card-nav">
+                            <button class="nav-arrow" id="prev-service" aria-label="Anterior"><i
+                                    class="fa-solid fa-arrow-left"></i></button>
+                            <button class="nav-arrow" id="next-service" aria-label="Siguiente"><i
+                                    class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Do (Grid) -->
+        <section id="que-hacemos" class="section capabilities-section">
+            <div class="container">
+                <div class="capabilities-header fade-in-up">
+                    <h3>Lo que hacemos</h3>
+                    <h1>Nuestros Servicios</h1>
+                </div>
+
+                <div class="capabilities-grid">
+                    <!-- Service 1: Creación de Contenido -->
+                    <div class="capability-card fade-in-up">
+                        <div class="capability-icon">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <h3>Creación de Contenido</h3>
+                        <p>Estrategias creativas y producción visual diseñada para capturar la atención en tus redes
+                            sociales.</p>
+                    </div>
+
+                    <!-- Service 2: Plan de Marketing -->
+                    <div class="capability-card fade-in-up">
+                        <div class="capability-icon">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3>Plan de Marketing</h3>
+                        <p>Hoja de ruta estratégica personalizada para alcanzar tus objetivos comerciales de manera
+                            eficiente.</p>
+                    </div>
+
+                    <!-- Service 3: Edición de Videos -->
+                    <div class="capability-card fade-in-up">
+                        <div class="capability-icon">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <h3>Edición de Videos</h3>
+                        <p>Post-producción profesional con efectos, transiciones y narrativa dinámica para alto impacto
+                            visual.</p>
+                    </div>
+
+                    <!-- Service 4: Diseños -->
+                    <div class="capability-card fade-in-up">
+                        <div class="capability-icon">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <h3>Diseños</h3>
+                        <p>Identidad visual, branding y material gráfico publicitario que eleva la percepción de tu
+                            marca.</p>
+                    </div>
+
+                    <!-- Service 5: Community Manager -->
+                    <div class="capability-card fade-in-up">
+                        <div class="capability-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3>Community Manager</h3>
+                        <p>Gestión activa de comunidades, moderación e interacción estratégica para fidelizar a tu
+                            audiencia.</p>
+                    </div>
+
+                    <!-- Service 6: Reportes -->
+                    <div class="capability-card fade-in-up">
+                        <div class="capability-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3>Reportes</h3>
+                        <p>Análisis profundo de métricas y rendimiento con informes detallados para la toma de
+                            decisiones.</p>
+                    </div>
+
+                    <!-- Service 7: Guiones -->
+                    <div class="capability-card fade-in-up">
+                        <div class="capability-icon">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+                        <h3>Guiones</h3>
+                        <p>Storytelling persuasivo y redacción de scripts optimizados para videos y campañas
+                            publicitarias.</p>
+                    </div>
+
+                    <!-- Service 8: Páginas Web -->
+                    <div class="capability-card fade-in-up">
+                        <div class="capability-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3>Páginas Web</h3>
+                        <p>Desarrollo web a medida, responsivo y optimizado para SEO, diseñado para convertir visitantes
+                            en clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conocenos" class="section team-section">
+            <div class="container">
+                <div class="team-header fade-in-up">
+                    <h3>Quiénes somos</h3>
+                    <h1>Nuestro Equipo</h1>
+                </div>
+
+                <div class="team-grid">
+                    <!-- Member 1 -->
+                    <div class="team-card fade-in-up">
+                        <div class="team-card-image">
+                            <div class="tap-indicator" aria-hidden="true">
+                                <i class="fa-solid fa-arrow-pointer"></i>
+                                <span>Toca para ver más</span>
+                            </div>
+                            <img src="assets/images/team_1.png" alt="Nara Vajaphattana">
+                            <div class="team-overlay">
+                                <div class="team-socials">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i> Linkedin</a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                                </div>
+                                <div class="team-bio">
+                                    <p>Licenciada en Comunicación Social y activista digital, egresada de la Universidad Arturo Michelena. Yo me encargo de realizar las estrategias y contenidos audiovisuales para las RRSS.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Daniela Sanchez</h3>
+                            <p>CEO y Creadora de Contenido</p>
+                        </div>
+                    </div>
+
+                    <!-- Member 2 -->
+                    <div class="team-card fade-in-up">
+                        <div class="team-card-image">
+                            <div class="tap-indicator" aria-hidden="true">
+                                <i class="fa-solid fa-arrow-pointer"></i>
+                                <span>Toca para ver más</span>
+                            </div>
+                            <img src="assets/images/team_2.png" alt="Daniel Gibo">
+                            <div class="team-overlay">
+                                <div class="team-socials">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i> Linkedin</a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                                </div>
+                                <div class="team-bio">
+                                    <p>Estratega de marketing digital enfocado en el crecimiento acelerado y la
+                                        optimización de conversiones para startups.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Sofia Padron</h3>
+                            <p>Community Manager</p>
+                        </div>
+                    </div>
+
+                    <!-- Member 3 -->
+                    <div class="team-card fade-in-up">
+                        <div class="team-card-image">
+                            <div class="tap-indicator" aria-hidden="true">
+                                <i class="fa-solid fa-arrow-pointer"></i>
+                                <span>Toca para ver más</span>
+                            </div>
+                            <img src="assets/images/team_3.png" alt="Alice Han">
+                            <div class="team-overlay">
+                                <div class="team-socials">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i> Linkedin</a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                                </div>
+                                <div class="team-bio">
+                                    <p>Licenciada en Diseño Gráfico, egresada de la Universidad Rafael Belloso Chacín. Actualmente, profesora del Instituto de Diseño de Valencia, manejo de RRSS, Diseño Editorial, etc.
+</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Valeria Navarro</h3>
+                            <p>Directora de Diseño</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integrations / Carousel Section (Refactored for Swiper) -->
+        <section id="integrations" class="section integrations-section">
+            <div class="section-header">
+                <h2 class="integrations-title text-center" style="color: white; margin-bottom: 3rem;">Marcas que han confiado en nosotros</h2>
+            </div>
+
+            <!-- Swiper 1: Left to Right -->
+            <div class="swiper swiper-integrations-1">
+                <div class="swiper-wrapper" id="swiper-track-1">
+                    <!-- JS generated slides -->
+                </div>
+            </div>
+
+            <!-- Swiper 2: Right to Left -->
+            <div class="swiper swiper-integrations-2">
+                <div class="swiper-wrapper" id="swiper-track-2">
+                    <!-- JS generated slides -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-layout">
+            <!-- Brand & CTA -->
+            <div class="footer-brand-col">
+                <a href="#hero" class="footer-logo" aria-label="Seven Studio">
+                    <img src="assets/images/logo.png" alt="Seven Studio" />
+                </a>
+                <h2 class="footer-cta-text">Comienza tu proyecto con Seven Studio</h2>
+                <div class="footer-newsletter">
+                    <button type="button" class="footer-open-form trigger-form">
+                        Empezar <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+                <p class="footer-cta-note">También puedes escribirnos directamente al
+                    <a href="https://wa.link/pxanwr" target="_blank" rel="noopener">WhatsApp</a>.
+                </p>
+            </div>
+
+            <!-- Links -->
+            <div class="footer-links-col">
+                <div class="footer-links-group">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="#servicios">Planes</a></li>
+                        <li><a href="#que-hacemos">Lo que hacemos</a></li>
+                        <li><a href="#conocenos">Equipo</a></li>
+                        <li><a href="#integrations">Proyectos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="mailto:agencysevenstudio@gmail.com">agencysevenstudio@gmail.com</a></li>
+                        <li><a href="tel:+584144826151">+58 414 482 6151</a></li>
+                        <li><a href="https://wa.link/pxanwr" target="_blank" rel="noopener">WhatsApp</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>© 2025 Seven Studio. Todos los derechos reservados.</p>
+            <i class="fa-solid fa-earth-americas"></i>
+        </div>
+    </footer>
+
+    <!-- Libs -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- App Logic (Modular) -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
